@@ -11,7 +11,8 @@ export const userSchema: Schema = new Schema({
         required:[true,"is required name"]
     },
     lastname:{
-        type: String
+        type: String,
+        required:true
     },
     email: {
         type: String,
@@ -28,7 +29,7 @@ export const userSchema: Schema = new Schema({
         enum:validRoles    
     }
 
-    
+    // asd
 })
 userSchema.plugin(uniqueValidator,{
     message:"{PATH} must be unique"

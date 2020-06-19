@@ -15,7 +15,8 @@ exports.userSchema = new mongoose_1.Schema({
         required: [true, "is required name"]
     },
     lastname: {
-        type: String
+        type: String,
+        required: true
     },
     email: {
         type: String,
@@ -31,6 +32,7 @@ exports.userSchema = new mongoose_1.Schema({
         default: "USER_ROLE",
         enum: validRoles
     }
+    // asd
 });
 exports.userSchema.plugin(mongoose_unique_validator_1.default, {
     message: "{PATH} must be unique"
