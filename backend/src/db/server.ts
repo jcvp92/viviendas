@@ -1,5 +1,7 @@
 import express, {Request,Response} from "express"
 import mongoose from "mongoose";
+import { user_router } from "../routers/user";
+import { property_router } from "../routers/property";
 
 //defnicion de clase 
  export  class Server { 
@@ -33,7 +35,9 @@ import mongoose from "mongoose";
                 message:"the server is active"
             })
         });
-    
+        
+        this.app.use("", user_router)
+        this.app.use("", property_router)
     } 
     // agregar datos (autorizacion al frontend)
     settings__cors(){

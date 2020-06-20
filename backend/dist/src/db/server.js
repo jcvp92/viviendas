@@ -5,6 +5,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const mongoose_1 = __importDefault(require("mongoose"));
+const user_1 = require("../routers/user");
+const property_1 = require("../routers/property");
 //defnicion de clase 
 class Server {
     // contructor para llamar  a todas las funciones
@@ -30,6 +32,8 @@ class Server {
                 message: "the server is active"
             });
         });
+        this.app.use("", user_1.user_router);
+        this.app.use("", property_1.property_router);
     }
     // agregar datos (autorizacion al frontend)
     settings__cors() {

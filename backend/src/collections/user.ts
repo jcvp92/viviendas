@@ -34,3 +34,11 @@ export const userSchema: Schema = new Schema({
 userSchema.plugin(uniqueValidator,{
     message:"{PATH} must be unique"
 })  
+
+userSchema.methods.toJSON = function() {
+    let user = this;
+    let userObject = user.toObject();
+    delete userObject.password;
+
+    return userObject
+}
